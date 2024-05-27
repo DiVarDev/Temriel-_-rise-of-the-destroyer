@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 360014444}
   - component: {fileID: 360014443}
   - component: {fileID: 360014442}
-  - component: {fileID: 360014445}
   m_Layer: 5
   m_Name: Play Button
   m_TagString: Untagged
@@ -206,7 +205,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 360014443}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 701954203}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: PlayGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &360014443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,19 +256,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360014440}
   m_CullTransparentMesh: 1
---- !u!114 &360014445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 360014440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4929d08fbc07b4489ecfafa19766764, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  btn_play: {fileID: 360014442}
 --- !u!1 &378801582
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,6 +690,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4df7c7769f8b842b8fd851fa7e25d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settingsScene: 1
+  creditsScene: 2
+  gameScene: 3
 --- !u!4 &701954204
 Transform:
   m_ObjectHideFlags: 0
@@ -701,7 +702,7 @@ Transform:
   m_GameObject: {fileID: 701954202}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1048.6354, y: 530.24084, z: 0.0006146984}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -987,7 +988,6 @@ GameObject:
   - component: {fileID: 859959152}
   - component: {fileID: 859959151}
   - component: {fileID: 859959150}
-  - component: {fileID: 859959153}
   m_Layer: 5
   m_Name: Settings Button
   m_TagString: Untagged
@@ -1058,7 +1058,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 859959151}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 701954203}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: SettingsGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &859959151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1097,19 +1109,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 859959148}
   m_CullTransparentMesh: 1
---- !u!114 &859959153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859959148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c96b50d89437b014ca0e0b2dc25acfc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  btn_settings: {fileID: 859959150}
 --- !u!1 &1361448862
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,7 +1199,6 @@ GameObject:
   - component: {fileID: 1391302037}
   - component: {fileID: 1391302036}
   - component: {fileID: 1391302035}
-  - component: {fileID: 1391302038}
   m_Layer: 5
   m_Name: Credits Button
   m_TagString: Untagged
@@ -1271,7 +1269,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1391302036}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 701954203}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: CreditsGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1391302036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1310,19 +1320,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391302033}
   m_CullTransparentMesh: 1
---- !u!114 &1391302038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1391302033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d81d7b4200fe5bb4e96117eae480848c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  btn_credits: {fileID: 1391302035}
 --- !u!1 &1424681453
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerStatistics : MonoBehaviour
 {
+    // Variables
+    public int health = 100;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +18,7 @@ public class PlayerStatistics : MonoBehaviour
     {
         
     }
+
+    // Functions
+
 }

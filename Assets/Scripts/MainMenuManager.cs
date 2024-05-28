@@ -6,6 +6,8 @@ using UnityEngine;
 public class MainMenuManager : MonoBehaviour
 {
     // Variables
+    [Header("User Interface")]
+    public bool isCursorHidden = true;
     private SceneLoader sceneLoader;
     [Header("Scenes indexes")]
     public int settingsScene = 1;
@@ -22,7 +24,16 @@ public class MainMenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isCursorHidden)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
     // Functions

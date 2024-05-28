@@ -8,22 +8,26 @@ using UnityEngine.Video;
 public class VideoManager : MonoBehaviour
 {
     // Variables
-    [Header("Video Components")]
-    public bool isVideoPlayOnAwake = true;
+    [Header("Video Variables")]
+    public bool isVideoAutoPlaying = false;
+    [Header("Video Player Variables")]
+    public VideoPlayer videoPlayer;
+    public bool isVideoPlayerPlaying = false;
+    public bool isPlayOnAwake = false;
     public bool isWaitingForFirstFrame = true;
-    public bool isPlayingOnLoop = true;
-    public bool isSkippingOnDrop = false;
+    public bool isPlayingLooping = false;
+    public bool isSkippingOnDrop = true;
     [Range(0f, 10f)]
     public float playbackSpeed = 1.0f;
-    [Header("Video Components")]
-    public VideoPlayer videoPlayer;
     [Header("Video List")]
     public List<VideoClip> videoList;
+    public bool isListLooping = false;
     public int videoListCount;
     public int videoSelected;
     public string videoName;
     public float videoLength;
     public float videoPlayerPlaytime;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,37 +36,62 @@ public class VideoManager : MonoBehaviour
         videoPlayer = GetComponent<VideoPlayer>();
         AssignVariablesToComponentVideoPlayer();
 
-        InitializeVideoPlayer();
+        InitializeVideoPlayerValues();
+
+        //PlayVideo();
     }
 
     // Update is called once per frame
     void Update()
     {
+        isVideoPlayerPlaying = videoPlayer.isPlaying;
+        AssignVariablesToComponentVideoPlayer();
+
         // Update Video Player playtime in the global variable exposed to the inspector
-        videoPlayerPlaytime = Mathf.Round(float.Parse(videoPlayer.time.ToString()));
-        // Check if the track is still playing or it finished
+        videoPlayerPlaytime = Mathf.Ceil(float.Parse(videoPlayer.time.ToString()));
+        // Checks if the video is still playing or it has finished
         if (videoPlayerPlaytime >= videoLength)
         {
-            StopVideo();
-            NextVideo();
-            if (isVideoPlayOnAwake)
+            // Stops video player
+            StopVideoPlayer();
+
+            // Checks if the video selected is not yet the last video in the list
+            if (videoSelected < videoList.Count - 1)
             {
+                LoadNextVideo();
                 PlayVideo();
             }
+            // If the video selected is equal to the last video in the list,
+            // the video selected is set again to the first video in the list
+            else if (videoSelected >= videoList.Count - 1)
+            {
+                ReloadList();
+                // Playing video based on isListLooping bool
+                if (isListLooping)
+                {
+                    PlayVideo();
+                }
+            }
         }
+
+        // Playing video based on isVideoAutoPlaying bool
+        /*if (isVideoAutoPlaying)
+        {
+            PlayVideo();
+        }*/
     }
 
     // Functions
     public void AssignVariablesToComponentVideoPlayer()
     {
-        videoPlayer.playOnAwake = isVideoPlayOnAwake;
+        videoPlayer.playOnAwake = isPlayOnAwake;
         videoPlayer.waitForFirstFrame = isWaitingForFirstFrame;
-        videoPlayer.isLooping = isPlayingOnLoop;
+        videoPlayer.isLooping = isPlayingLooping;
         videoPlayer.skipOnDrop = isSkippingOnDrop;
         videoPlayer.playbackSpeed = playbackSpeed;
     }
 
-    public void InitializeVideoPlayer()
+    public void InitializeVideoPlayerValues()
     {
         // Selecting first video on the list
         videoSelected = videoList.IndexOf(videoList.First());
@@ -73,28 +102,25 @@ public class VideoManager : MonoBehaviour
 
         // Inspector info loading
         videoName = videoPlayer.clip.name;
-        videoLength = Mathf.Round(float.Parse(videoPlayer.clip.length.ToString()));
-
-        // Playing video based on playVideo bool
-        if (isVideoPlayOnAwake)
-        {
-            PlayVideo();
-        }
+        videoLength = Mathf.Ceil(float.Parse(videoPlayer.clip.length.ToString()));
     }
 
-    public void NextVideo()
+    public void LoadNextVideo()
     {
-        if (videoSelected < videoList.Count - 1)
-        {
-            videoSelected++;
-        }
-        else if (videoSelected >= videoList.Count - 1)
-        {
-            videoSelected = videoList.IndexOf(videoList.First());
-        }
+        Debug.Log("Loading next video...");
+        videoSelected++;
         videoPlayer.clip = videoList.ElementAt(videoSelected);
         videoName = videoPlayer.clip.name;
-        videoLength = Mathf.Round(float.Parse(videoPlayer.clip.length.ToString()));
+        videoLength = Mathf.Ceil(float.Parse(videoPlayer.clip.length.ToString()));
+    }
+
+    public void ReloadList()
+    {
+        Debug.Log("Reloading video list...");
+        videoSelected = videoList.IndexOf(videoList.First());
+        videoPlayer.clip = videoList.ElementAt(videoSelected);
+        videoName = videoPlayer.clip.name;
+        videoLength = Mathf.Ceil(float.Parse(videoPlayer.clip.length.ToString()));
     }
 
     public void PlayVideo()
@@ -102,7 +128,7 @@ public class VideoManager : MonoBehaviour
         if (videoPlayer.clip != null)
         {
             videoPlayer.Play();
-            Debug.Log("Video Player Clip is playing!");
+            Debug.Log("Video Player Clip is playing...");
         }
         else
         {
@@ -110,12 +136,12 @@ public class VideoManager : MonoBehaviour
         }
     }
 
-    public void PauseVideo()
+    public void PauseVideoPlayer()
     {
         if (videoPlayer.clip != null)
         {
             videoPlayer.Pause();
-            Debug.Log("Video Player Clip is paused!");
+            Debug.Log("Video Player Clip is paused...");
         }
         else
         {
@@ -123,12 +149,12 @@ public class VideoManager : MonoBehaviour
         }
     }
 
-    public void StopVideo()
+    public void StopVideoPlayer()
     {
         if (videoPlayer.clip != null)
         {
             videoPlayer.Stop();
-            Debug.Log("Video Player Clip is stopped!");
+            Debug.Log("Video Player Clip is stopped...");
         }
         else
         {

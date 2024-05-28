@@ -4,28 +4,90 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class MusicManager : MonoBehaviour
 {
     // Variables
-    [Header("Manager Variables")]
-    public bool playMusic = true;
-    public bool isAudioSourceMuted;
-    public bool isListRandomized = false;
-
-    [Header("Music List ")]
+    [Header("Audio Variables")]
+    public bool isMusicAutoPlaying = false;
+    [Header("Audio Source Variables")]
+    public AudioSource audioSource;
+    public bool isAudioSourcePlaying = false;
+    public bool isMute = false;
+    public bool isPlayOnAwake = false;
+    public bool isLooping = false;
+    [Header("Music List")]
     public List<AudioClip> musicList;
+    public bool isListLooping = false;
+    public bool isListRandomized = false;
     public int musicListCount;
-    public int currentTrackSelectedNumber;
-    public string currentTrackName;
+    public int trackSelected;
+    public string trackName;
     public float trackLength;
-
-    [Header("Music Audio Source")]
-    public AudioSource musicAudioSource;
-    public float musicAudioSourcePlaytime;
+    public float audioSourcePlaytime;
 
     // Start is called before the first frame update
     void Start()
+    {
+        // Getting Audio Source Component on the start
+        audioSource = GetComponent<AudioSource>();
+        AssignVariablesToComponentAudioSource();
+
+        InitializeAudioSourceValues();
+
+        //PlayMusic();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        isAudioSourcePlaying = audioSource.isPlaying;
+        AssignVariablesToComponentAudioSource();
+
+        // Update Audio Source playtime in the global variable exposed to the inspector
+        audioSourcePlaytime = audioSource.time;
+        // Check if the track is still playing or it finished
+        if (audioSourcePlaytime >= trackLength)
+        {
+            // Stops video player
+            StopAudioSource();
+
+            // Checks if the track selected is not yet the last video in the list
+            if (trackSelected < musicList.Count - 1)
+            {
+                LoadNextTrack();
+                PlayMusic();
+            }
+            // If the track selected is equal to the last track in the list,
+            // the track selected is set again to the first track in the list
+            else if (trackSelected >= musicList.Count - 1)
+            {
+                ReloadList();
+                // Playing music based on isListLooping bool
+                if (isListLooping)
+                {
+                    PlayMusic();
+                }
+            }
+        }
+
+        // Playing music based on isMusicAutoPlaying bool
+        /*if (isMusicAutoPlaying)
+        {
+            PlayMusic();
+        }*/
+    }
+
+    // Functions
+    public void AssignVariablesToComponentAudioSource()
+    {
+        audioSource.mute = isMute;
+        audioSource.playOnAwake = isPlayOnAwake;
+        audioSource.loop = isLooping;
+    }
+
+    public void InitializeAudioSourceValues()
     {
         // Randomize list function call
         if (isListRandomized)
@@ -33,62 +95,38 @@ public class MusicManager : MonoBehaviour
             RandomizeList();
         }
 
-        currentTrackSelectedNumber = musicList.IndexOf(musicList.First());
+        trackSelected = musicList.IndexOf(musicList.First());
         musicListCount = musicList.Count - 1;
 
-        // Audio Source Component
-        musicAudioSource = GetComponent<AudioSource>();
-        musicAudioSource.clip = musicList.ElementAt(currentTrackSelectedNumber);
+        //
+        audioSource.clip = musicList.ElementAt(trackSelected);
 
         // Inspector info loading
-        currentTrackName = musicAudioSource.clip.name;
-        trackLength = musicAudioSource.clip.length;
-
-        // Playing music based on playMusic bool
-        if (playMusic)
-        {
-            PlayMusic();
-        }
+        trackName = audioSource.clip.name;
+        trackLength = audioSource.clip.length;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadNextTrack()
     {
-        // Update Audio Source playtime in the global variable exposed to the inspector
-        musicAudioSourcePlaytime = musicAudioSource.time;
-        // Check if the track is still playing or it finished
-        if (musicAudioSourcePlaytime >= trackLength)
-        {
-            StopMusic();
-            NextTrack();
-            if (playMusic)
-            {
-                PlayMusic();
-            }
-        }
+        trackSelected++;
+        audioSource.clip = musicList.ElementAt(trackSelected);
+        trackName = audioSource.clip.name;
+        trackLength = audioSource.clip.length;
     }
 
-    // Functions
-    public void NextTrack()
+    public void ReloadList()
     {
-        if (currentTrackSelectedNumber < musicList.Count - 1)
-        {
-            currentTrackSelectedNumber++;
-        }
-        else if (currentTrackSelectedNumber >= musicList.Count - 1)
-        {
-            currentTrackSelectedNumber = musicList.IndexOf(musicList.First());
-        }
-        musicAudioSource.clip = musicList.ElementAt(currentTrackSelectedNumber);
-        currentTrackName = musicAudioSource.clip.name;
-        trackLength = musicAudioSource.clip.length;
+        trackSelected = musicList.IndexOf(musicList.First());
+        audioSource.clip = musicList.ElementAt(trackSelected);
+        trackName = audioSource.clip.name;
+        trackLength = audioSource.clip.length;
     }
 
     public void PlayMusic()
     {
-        if (musicAudioSource.clip != null)
+        if (audioSource.clip != null)
         {
-            musicAudioSource.Play();
+            audioSource.Play();
             Debug.Log("Audio Source Clip is playing!");
         }
         else
@@ -97,11 +135,11 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    public void PauseMusic()
+    public void PauseAudioSource()
     {
-        if (musicAudioSource.clip != null)
+        if (audioSource.clip != null)
         {
-            musicAudioSource.Pause();
+            audioSource.Pause();
             Debug.Log("Audio Source Clip is paused!");
         }
         else
@@ -110,11 +148,11 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    public void StopMusic()
+    public void StopAudioSource()
     {
-        if (musicAudioSource.clip != null)
+        if (audioSource.clip != null)
         {
-            musicAudioSource.Stop();
+            audioSource.Stop();
             Debug.Log("Audio Source Clip is stopped!");
         }
         else

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.LowLevel;
 
@@ -14,6 +15,8 @@ public class PlayerInputManager : MonoBehaviour
     /*private PlayerWeaponFollowLook playerWeaponFollowLook;*/
     private PlayerStatistics playerStatistics;
     private PlayerActions playerActions;
+
+    public WeaponManager weaponManager;
 
     private void Awake()
     {
@@ -32,6 +35,10 @@ public class PlayerInputManager : MonoBehaviour
         playerOnFootActions.Jump.performed += ctx => playerMovement.Jump();
         playerOnFootActions.Crouch.performed += ctx => playerMovement.Crouch();
         playerOnFootActions.Sprint.performed += ctx => playerMovement.Sprint();
+
+        playerOnFootActions.Attack.performed += ctx => weaponManager.Shoot();
+        playerOnFootActions.Reload.performed += ctx => weaponManager.Reload();
+
     }
 
     // Start is called before the first frame update

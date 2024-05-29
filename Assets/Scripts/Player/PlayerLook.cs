@@ -10,7 +10,20 @@ public class PlayerLook : MonoBehaviour
 
     public float xSensitivity = 50f;
     public float ySensitivity = 50f;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
     
+    // Functions
     public void ProcessLook(Vector2 input)
     {
         float mouseX = input.x;

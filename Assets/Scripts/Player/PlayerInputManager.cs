@@ -11,6 +11,7 @@ public class PlayerInputManager : MonoBehaviour
 
     private PlayerMovement playerMovement;
     private PlayerLook playerLook;
+    private PlayerWeaponFollowLook playerWeaponFollowLook;
     private PlayerStatistics playerStatistics;
     private PlayerActions playerActions;
 
@@ -21,6 +22,7 @@ public class PlayerInputManager : MonoBehaviour
 
         playerMovement = GetComponent<PlayerMovement>();
         playerLook = GetComponent<PlayerLook>();
+        playerWeaponFollowLook = GetComponent<PlayerWeaponFollowLook>();
         playerStatistics = GetComponent<PlayerStatistics>();
         playerActions = GetComponent<PlayerActions>();
 
@@ -55,6 +57,9 @@ public class PlayerInputManager : MonoBehaviour
     {
         // Will tell the PlayerLook to move using the camera and character controller using the value from the Look action on MyInputActions
         playerLook.ProcessLook(playerOnFootActions.Look.ReadValue<Vector2>());
+
+        // Will tell the PlayerWeaponFollowLook to move using the camera and character controller using the value from the Look action on MyInputActions
+        playerWeaponFollowLook.ProcessFollowLookWithWeapon(playerOnFootActions.Look.ReadValue<Vector2>());
     }
 
     void OnEnable()

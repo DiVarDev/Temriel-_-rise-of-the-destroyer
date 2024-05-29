@@ -98,6 +98,24 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""c3dd850b-0802-444d-a975-c1480f55b338"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ADS"",
+                    ""type"": ""Button"",
+                    ""id"": ""118487d6-b73b-42da-8d12-dcd4eaf14422"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -217,7 +235,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""path"": ""<XInputController>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Xbox Controller"",
+                    ""groups"": ""Xbox Controller;XboxController"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -228,7 +246,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""path"": ""<XInputController>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Xbox Controller"",
+                    ""groups"": ""Xbox Controller;XboxController"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -239,7 +257,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""path"": ""<XInputController>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Xbox Controller"",
+                    ""groups"": ""Xbox Controller;XboxController"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -250,7 +268,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""path"": ""<XInputController>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Xbox Controller"",
+                    ""groups"": ""Xbox Controller;XboxController"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -272,7 +290,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""path"": ""<XInputController>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Xbox Controller"",
+                    ""groups"": ""Xbox Controller;XboxController"",
                     ""action"": ""Crouch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -294,7 +312,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""path"": ""<XInputController>/rightStick"",
                     ""interactions"": """",
                     ""processors"": ""ScaleVector2(x=1.5,y=1.5)"",
-                    ""groups"": ""Xbox Controller"",
+                    ""groups"": ""Xbox Controller;XboxController"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -316,7 +334,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""path"": ""<XInputController>/leftStickPress"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Xbox Controller"",
+                    ""groups"": ""Xbox Controller;XboxController"",
                     ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -338,7 +356,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""path"": ""<XInputController>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Xbox Controller"",
+                    ""groups"": ""Xbox Controller;XboxController"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -360,7 +378,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""path"": ""<XInputController>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Xbox Controller"",
+                    ""groups"": ""Xbox Controller;XboxController"",
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -382,7 +400,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""path"": ""<XInputController>/buttonEast"",
                     ""interactions"": ""Hold"",
                     ""processors"": """",
-                    ""groups"": ""Xbox Controller"",
+                    ""groups"": ""Xbox Controller;XboxController"",
                     ""action"": ""Prone"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -404,15 +422,87 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""path"": ""<XInputController>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Xbox Controller"",
+                    ""groups"": ""Xbox Controller;XboxController"",
                     ""action"": ""Vault"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a2f6eceb-e56d-43f9-a612-8b2404f38c42"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardAndMouse"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""524a1d20-3a56-434f-90ae-c092a297dcc4"",
+                    ""path"": ""<XInputController>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3ad4c20f-a80f-4390-8998-3b199ec6136d"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardAndMouse"",
+                    ""action"": ""ADS"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ad669602-00c7-4b18-a7f5-768e84dba993"",
+                    ""path"": ""<XInputController>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""ADS"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""KeyboardAndMouse"",
+            ""bindingGroup"": ""KeyboardAndMouse"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                },
+                {
+                    ""devicePath"": ""<Mouse>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""XboxController"",
+            ""bindingGroup"": ""XboxController"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<XInputController>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // PlayerOnFoot
         m_PlayerOnFoot = asset.FindActionMap("PlayerOnFoot", throwIfNotFound: true);
@@ -424,6 +514,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_PlayerOnFoot_Sprint = m_PlayerOnFoot.FindAction("Sprint", throwIfNotFound: true);
         m_PlayerOnFoot_Look = m_PlayerOnFoot.FindAction("Look", throwIfNotFound: true);
         m_PlayerOnFoot_Interact = m_PlayerOnFoot.FindAction("Interact", throwIfNotFound: true);
+        m_PlayerOnFoot_Attack = m_PlayerOnFoot.FindAction("Attack", throwIfNotFound: true);
+        m_PlayerOnFoot_ADS = m_PlayerOnFoot.FindAction("ADS", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -493,6 +585,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerOnFoot_Sprint;
     private readonly InputAction m_PlayerOnFoot_Look;
     private readonly InputAction m_PlayerOnFoot_Interact;
+    private readonly InputAction m_PlayerOnFoot_Attack;
+    private readonly InputAction m_PlayerOnFoot_ADS;
     public struct PlayerOnFootActions
     {
         private @InputActions m_Wrapper;
@@ -505,6 +599,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @Sprint => m_Wrapper.m_PlayerOnFoot_Sprint;
         public InputAction @Look => m_Wrapper.m_PlayerOnFoot_Look;
         public InputAction @Interact => m_Wrapper.m_PlayerOnFoot_Interact;
+        public InputAction @Attack => m_Wrapper.m_PlayerOnFoot_Attack;
+        public InputAction @ADS => m_Wrapper.m_PlayerOnFoot_ADS;
         public InputActionMap Get() { return m_Wrapper.m_PlayerOnFoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -538,6 +634,12 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
+            @ADS.started += instance.OnADS;
+            @ADS.performed += instance.OnADS;
+            @ADS.canceled += instance.OnADS;
         }
 
         private void UnregisterCallbacks(IPlayerOnFootActions instance)
@@ -566,6 +668,12 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
+            @ADS.started -= instance.OnADS;
+            @ADS.performed -= instance.OnADS;
+            @ADS.canceled -= instance.OnADS;
         }
 
         public void RemoveCallbacks(IPlayerOnFootActions instance)
@@ -583,6 +691,24 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         }
     }
     public PlayerOnFootActions @PlayerOnFoot => new PlayerOnFootActions(this);
+    private int m_KeyboardAndMouseSchemeIndex = -1;
+    public InputControlScheme KeyboardAndMouseScheme
+    {
+        get
+        {
+            if (m_KeyboardAndMouseSchemeIndex == -1) m_KeyboardAndMouseSchemeIndex = asset.FindControlSchemeIndex("KeyboardAndMouse");
+            return asset.controlSchemes[m_KeyboardAndMouseSchemeIndex];
+        }
+    }
+    private int m_XboxControllerSchemeIndex = -1;
+    public InputControlScheme XboxControllerScheme
+    {
+        get
+        {
+            if (m_XboxControllerSchemeIndex == -1) m_XboxControllerSchemeIndex = asset.FindControlSchemeIndex("XboxController");
+            return asset.controlSchemes[m_XboxControllerSchemeIndex];
+        }
+    }
     public interface IPlayerOnFootActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -593,5 +719,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
+        void OnADS(InputAction.CallbackContext context);
     }
 }

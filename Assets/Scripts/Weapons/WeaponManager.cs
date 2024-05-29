@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
@@ -7,12 +8,22 @@ public class WeaponManager : MonoBehaviour
     // Variables
     [Header("Script Variables")]
     public bool isFiring = false;
-    public float fireRate = 2f;
+    public float fireRate;
     public float fireRateCooldown = 0.0f;
+    public bool isReloading = false;
+    public float reloadDuration;
+    public GameObject muzzlePelletSpawnPoint;
+    public GameObject pelletPrefab;
+    public float pelletSpeed = 15000f;
+    public GameObject shellPrefab;
+    public GameObject shellHidden;
+    public Vector3 shellHiddenScale;
+    public float shellExitChamberSpeed = 15000f;
     [Header("Animations Components")]
     public Animator animator;
     public AnimationClip idle;
     public AnimationClip firing;
+    public AnimationClip reloading;
     [Header("Audio Components")]
     public AudioSource audioSource;
     public AudioClip fire;
@@ -22,34 +33,59 @@ public class WeaponManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        isFiring = false;
+        fireRate = firing.length;
+
+        reloadDuration = reload.length;
+
+        shellHiddenScale = shellHidden.transform.localScale;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     // Functions
     public void PlayAudioClip(AudioClip audioClip)
     {
+        audioSource.Stop();
         audioSource.PlayOneShot(audioClip);
     }
 
     public void Shoot()
     {
-        //animator.SetTrigger("isWeaponShooting");
-        //animator.SetBool("isWeaponFiring", true);
-        //animator.SetTrigger("isWeaponShooting");
-        //animator.SetBool("isWeaponFiring", false);
-        
-        StartCoroutine(FireRateCooldown());
+        if (!isFiring)
+        {
+            animator.Play("Firing");
+            PlayAudioClip(fire);
+        }
+    }
+
+    public void SpawnShell()
+    {
+        GameObject shellSpawned = Instantiate(shellPrefab, shellHidden.transform.position, shellHidden.transform.rotation);
+        shellSpawned.transform.localScale = shellHiddenScale * 10;
+        shellSpawned.AddComponent<Rigidbody>();
+        //shellSpawned.GetComponent<Rigidbody>().AddRelativeForce(Vector3.right * shellExitChamberSpeed * Time.deltaTime);
+    }
+
+    public void ShootPellet()
+    {
+        GameObject pelletSpawned = Instantiate(pelletPrefab, muzzlePelletSpawnPoint.transform.position, Quaternion.identity);
+        pelletSpawned.transform.localScale = (pelletSpawned.transform.localScale)/32;
+        pelletSpawned.AddComponent<Rigidbody>();
+        //pelletSpawned.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * pelletSpeed * Time.deltaTime, ForceMode.Impulse);
     }
 
     public void Reload()
     {
-        PlayAudioClip(reload);
+        if (!isReloading)
+        {
+            animator.Play("Reloading");
+            PlayAudioClip(reload);
+        }
     }
 
     public AudioClip GetRandomizeBulletShellSound()
@@ -62,12 +98,9 @@ public class WeaponManager : MonoBehaviour
     }
 
     // Coroutines
-    IEnumerator FireRateCooldown()
+    /*IEnumerator FireRateCooldown(float time)
     {
-        isFiring = true;
-        fireRateCooldown = fireRate;
-        animator.Play("Firing");
-        PlayAudioClip(fire);
+        float fireRateCooldown = fireRate;
         while (fireRateCooldown > 0)
         {
             yield return new WaitForSeconds(1f);
@@ -75,5 +108,5 @@ public class WeaponManager : MonoBehaviour
         }
         isFiring = false;
         Debug.Log("Player can fire again...");
-    }
+    }*/
 }

@@ -36,6 +36,7 @@ public class PlayerInputManager : MonoBehaviour
         playerOnFootActions.Crouch.performed += ctx => playerMovement.Crouch();
         playerOnFootActions.Sprint.performed += ctx => playerMovement.Sprint();
 
+        //playerOnFootActions.ADS. += ctx => weaponManager.Shoot();
         playerOnFootActions.Attack.performed += ctx => weaponManager.Shoot();
         playerOnFootActions.Reload.performed += ctx => weaponManager.Reload();
 
@@ -64,6 +65,8 @@ public class PlayerInputManager : MonoBehaviour
     {
         // Will tell the PlayerLook to move using the camera and character controller using the value from the Look action on MyInputActions
         playerLook.ProcessLook(playerOnFootActions.Look.ReadValue<Vector2>());
+
+        // ADS Code
 
         /*// Will tell the PlayerWeaponFollowLook to move using the camera and character controller using the value from the Look action on MyInputActions
         playerWeaponFollowLook.ProcessFollowLookWithWeapon(playerOnFootActions.Look.ReadValue<Vector2>());*/

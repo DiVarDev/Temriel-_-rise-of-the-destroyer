@@ -8,11 +8,11 @@ FBXHeaderExtension:  {
 		Version: 1000
 		Year: 2024
 		Month: 5
-		Day: 28
-		Hour: 21
-		Minute: 56
-		Second: 43
-		Millisecond: 824
+		Day: 29
+		Hour: 12
+		Minute: 50
+		Second: 37
+		Millisecond: 813
 	}
 	Creator: "FBX SDK/FBX Plugins version 2020.3.2"
 	OtherFlags:  {
@@ -31,8 +31,8 @@ FBXHeaderExtension:  {
 			Comment: ""
 		}
 		Properties70:  {
-			P: "DocumentUrl", "KString", "Url", "", "D:\Users\riley\Unity Projects\Temriel-_-rise-of-the-destroyer\Assets\Art, Texture, etc_\3D Models\Shotgun Shell\akv7ecd9_Shotgun Shell.fbx"
-			P: "SrcDocumentUrl", "KString", "Url", "", "D:\Users\riley\Unity Projects\Temriel-_-rise-of-the-destroyer\Assets\Art, Texture, etc_\3D Models\Shotgun Shell\akv7ecd9_Shotgun Shell.fbx"
+			P: "DocumentUrl", "KString", "Url", "", "D:\Users\riley\Unity Projects\Temriel-_-rise-of-the-destroyer\Assets\Art, Texture, etc_\3D Models\Shotgun Shell\c4ra0hv4_Shotgun Shell.fbx"
+			P: "SrcDocumentUrl", "KString", "Url", "", "D:\Users\riley\Unity Projects\Temriel-_-rise-of-the-destroyer\Assets\Art, Texture, etc_\3D Models\Shotgun Shell\c4ra0hv4_Shotgun Shell.fbx"
 			P: "Original", "Compound", "", ""
 			P: "Original|ApplicationVendor", "KString", "", "", ""
 			P: "Original|ApplicationName", "KString", "", "", "Unity FBX Exporter"
@@ -78,7 +78,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 1731462890608, "Scene", "Scene" {
+	Document: 2087373430256, "Scene", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -223,7 +223,7 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	Geometry: 1726021512400, "Geometry::Scene", "Mesh" {
+	Geometry: 2098937858096, "Geometry::Scene", "Mesh" {
 		Vertices: *126 {
 			a: 47.5528568029404,-100,-15.4508590698242,40.4508769512177,-100,-29.3892800807953,29.3892800807953,-100,-40.4508739709854,15.4508575797081,-100,-47.5528508424759,-0,-100,-50.0000238418579,-15.4508575797081,-100,-47.5528478622437,-29.3892741203308,-100,-40.4508650302887,-40.4508620500565,-100,-29.3892711400986,-47.5528389215469,-100,-15.4508531093597,-50.000011920929,-100,0,-47.5528389215469,-100,15.4508531093597,-40.4508590698242,-100,29.3892681598663,-29.3892681598663,-100,40.450856089592,-15.4508531093597,-100,47.5528329610825,-1.49011611938477e-06,-100,50.0000059604645,15.4508486390114,-100,47.5528299808502,29.3892621994019,-100,40.4508531093597,40.4508501291275,-100,29.3892651796341,47.552827000618,-100,15.4508501291275,50,-100,0,47.5528568029404,100,-15.4508590698242,40.4508769512177,100,-29.3892800807953,29.3892800807953,100,-40.4508739709854,15.4508575797081,100,-47.5528508424759,-0,100,-50.0000238418579,-15.4508575797081,100,-47.5528478622437,-29.3892741203308,100,-40.4508650302887,-40.4508620500565,100,-29.3892711400986,-47.5528389215469,100,-15.4508531093597,-50.000011920929,100,0,-47.5528389215469,100,15.4508531093597,-40.4508590698242,100,29.3892681598663,-29.3892681598663,100,40.450856089592,-15.4508531093597,100,47.5528329610825,-1.49011611938477e-06,100,50.0000059604645,15.4508486390114,100,47.5528299808502,29.3892621994019,100,40.4508531093597,40.4508501291275,100,29.3892651796341,47.552827000618,100,15.4508501291275,50,100,0,-0,-100,0,-0,100,0
 		} 
@@ -341,19 +341,18 @@ Objects:  {
 			}
 		}
 	}
-	Model: 1725828063120, "Model::Shotgun_Shell", "Null" {
+	Model: 2096949961120, "Model::Shotgun_Shell", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationOrder", "enum", "", "",4
 			P: "RotationActive", "bool", "", "",1
 			P: "InheritType", "enum", "", "",1
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Scaling", "Lcl Scaling", "", "A",0.025000000372529,0.025000000372529,0.025000000372529
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 1725828067120, "Model::Head", "Mesh" {
+	Model: 2096949967120, "Model::Head", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "RotationOrder", "enum", "", "",4
@@ -367,7 +366,7 @@ Objects:  {
 		Shading: W
 		Culling: "CullingOff"
 	}
-	Model: 1725828037120, "Model::Body", "Mesh" {
+	Model: 2096949963120, "Model::Body", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "RotationOrder", "enum", "", "",4
@@ -381,7 +380,7 @@ Objects:  {
 		Shading: W
 		Culling: "CullingOff"
 	}
-	Model: 1725828069120, "Model::Bottom_Body", "Mesh" {
+	Model: 2096949969120, "Model::Bottom_Body", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "RotationOrder", "enum", "", "",4
@@ -395,7 +394,7 @@ Objects:  {
 		Shading: W
 		Culling: "CullingOff"
 	}
-	Material: 1727375982144, "Material::head", "" {
+	Material: 2101014469552, "Material::head", "" {
 		Version: 102
 		ShadingModel: "lambert"
 		MultiLayer: 0
@@ -408,7 +407,7 @@ Objects:  {
 			P: "Opacity", "double", "Number", "",1
 		}
 	}
-	Material: 1727375990144, "Material::body", "" {
+	Material: 2101014464752, "Material::body", "" {
 		Version: 102
 		ShadingModel: "lambert"
 		MultiLayer: 0
@@ -429,34 +428,34 @@ Objects:  {
 Connections:  {
 	
 	;Model::Shotgun_Shell, Model::RootNode
-	C: "OO",1725828063120,0
+	C: "OO",2096949961120,0
 	
 	;Model::Head, Model::Shotgun_Shell
-	C: "OO",1725828067120,1725828063120
+	C: "OO",2096949967120,2096949961120
 	
 	;Model::Body, Model::Shotgun_Shell
-	C: "OO",1725828037120,1725828063120
+	C: "OO",2096949963120,2096949961120
 	
 	;Model::Bottom_Body, Model::Shotgun_Shell
-	C: "OO",1725828069120,1725828063120
+	C: "OO",2096949969120,2096949961120
 	
 	;Material::head, Model::Head
-	C: "OO",1727375982144,1725828067120
+	C: "OO",2101014469552,2096949967120
 	
 	;Geometry::Scene, Model::Head
-	C: "OO",1726021512400,1725828067120
+	C: "OO",2098937858096,2096949967120
 	
 	;Material::body, Model::Body
-	C: "OO",1727375990144,1725828037120
+	C: "OO",2101014464752,2096949963120
 	
 	;Geometry::Scene, Model::Body
-	C: "OO",1726021512400,1725828037120
+	C: "OO",2098937858096,2096949963120
 	
 	;Material::body, Model::Bottom_Body
-	C: "OO",1727375990144,1725828069120
+	C: "OO",2101014464752,2096949969120
 	
 	;Geometry::Scene, Model::Bottom_Body
-	C: "OO",1726021512400,1725828069120
+	C: "OO",2098937858096,2096949969120
 }
 ;Takes section
 ;----------------------------------------------------

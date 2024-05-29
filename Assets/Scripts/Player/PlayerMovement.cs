@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
             playervelocity.y = gravity;
         }
         controller.Move(playervelocity * Time.deltaTime);
-        Debug.Log(playervelocity.y);
+        //Debug.Log(playervelocity.y);
     }
 
     public void Jump()

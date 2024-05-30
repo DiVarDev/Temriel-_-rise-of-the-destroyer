@@ -14,11 +14,11 @@ public class WeaponManager : MonoBehaviour
     public float reloadDuration;
     public GameObject muzzlePelletSpawnPoint;
     public GameObject pelletPrefab;
-    public float pelletSpeed = 15000f;
+    public float pelletVelocity = 15f;
     public GameObject shellPrefab;
     public GameObject shellHidden;
     public Vector3 shellHiddenScale;
-    public float shellExitChamberSpeed = 15000f;
+    public float shellExitChamberVelocity = 15f;
     [Header("Animations Components")]
     public Animator animator;
     public AnimationClip idle;
@@ -67,16 +67,14 @@ public class WeaponManager : MonoBehaviour
     {
         GameObject shellSpawned = Instantiate(shellPrefab, shellHidden.transform.position, shellHidden.transform.rotation);
         shellSpawned.transform.localScale = shellHiddenScale * 10;
-        shellSpawned.AddComponent<Rigidbody>();
-        //shellSpawned.GetComponent<Rigidbody>().AddRelativeForce(Vector3.right * shellExitChamberSpeed * Time.deltaTime);
+        //shellSpawned.GetComponent<Rigidbody>().AddRelativeForce(shellHidden.transform.right.normalized * shellExitChamberVelocity * Time.deltaTime);
     }
 
     public void ShootPellet()
     {
         GameObject pelletSpawned = Instantiate(pelletPrefab, muzzlePelletSpawnPoint.transform.position, Quaternion.identity);
         pelletSpawned.transform.localScale = (pelletSpawned.transform.localScale)/32;
-        pelletSpawned.AddComponent<Rigidbody>();
-        //pelletSpawned.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * pelletSpeed * Time.deltaTime, ForceMode.Impulse);
+        //pelletSpawned.GetComponent<Rigidbody>().AddForce(pelletPrefab.transform.forward.normalized * pelletVelocity * Time.deltaTime, ForceMode.Impulse);
     }
 
     public void Reload()

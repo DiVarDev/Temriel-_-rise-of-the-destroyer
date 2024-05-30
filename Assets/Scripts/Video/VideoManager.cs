@@ -44,7 +44,7 @@ public class VideoManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isVideoPlayerPlaying = videoPlayer.isPlaying;
+        /*isVideoPlayerPlaying = videoPlayer.isPlaying;
         AssignVariablesToComponentVideoPlayer();
 
         // Update Video Player playtime in the global variable exposed to the inspector
@@ -72,7 +72,7 @@ public class VideoManager : MonoBehaviour
                     PlayVideo();
                 }
             }
-        }
+        }*/
 
         // Playing video based on isVideoAutoPlaying bool
         /*if (isVideoAutoPlaying)

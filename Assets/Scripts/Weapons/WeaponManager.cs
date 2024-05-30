@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -5,20 +6,38 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
+    // Enum
+    public enum Person
+    {
+        Friend,
+        Foe
+    };
+
+
     // Variables
+    [Header("Weapon Info")]
+    public Person personRole;
     [Header("Script Variables")]
     public bool isFiring = false;
     public float fireRate;
     public float fireRateCooldown = 0.0f;
     public bool isReloading = false;
     public float reloadDuration;
+    [Header("Pellet Components")]
     public GameObject muzzlePelletSpawnPoint;
     public GameObject pelletPrefab;
-    public float pelletVelocity = 15f;
+    [Range(0f, 10f)]
+    public float pelletVelocity = 3f;
+    [Range(1f, 10f)]
+    public float pelletVelocityMultiplier = 5;
+    [Header("Shell Components")]
     public GameObject shellPrefab;
     public GameObject shellHidden;
     public Vector3 shellHiddenScale;
-    public float shellExitChamberVelocity = 15f;
+    [Range(0f, 10f)]
+    public float shellExitChamberVelocity = 5f;
+    [Range(1f, 10f)]
+    public float shellExitChamberVelocityMultiplier = 5f;
     [Header("Animations Components")]
     public Animator animator;
     public AnimationClip idle;
@@ -67,14 +86,19 @@ public class WeaponManager : MonoBehaviour
     {
         GameObject shellSpawned = Instantiate(shellPrefab, shellHidden.transform.position, shellHidden.transform.rotation);
         shellSpawned.transform.localScale = shellHiddenScale * 10;
-        //shellSpawned.GetComponent<Rigidbody>().AddRelativeForce(shellHidden.transform.right.normalized * shellExitChamberVelocity * Time.deltaTime);
+        //shellSpawned.GetComponent<Rigidbody>().AddRelativeForce(shellHidden.transform.right.normalized * (shellExitChamberVelocity * (shellExitChamberVelocityMultiplier * 500)) * Time.deltaTime);
     }
 
     public void ShootPellet()
     {
+        // Instanciating the pellet
         GameObject pelletSpawned = Instantiate(pelletPrefab, muzzlePelletSpawnPoint.transform.position, Quaternion.identity);
+        // Changing the scale of the pellet
         pelletSpawned.transform.localScale = (pelletSpawned.transform.localScale)/32;
-        //pelletSpawned.GetComponent<Rigidbody>().AddForce(pelletPrefab.transform.forward.normalized * pelletVelocity * Time.deltaTime, ForceMode.Impulse);
+        // Assigning the weapontag and who shot
+        pelletSpawned.GetComponent<AmmoProperties>().personWhoShot = (AmmoProperties.Person)personRole;
+        // Adding the impulse to the pellet
+        pelletSpawned.GetComponent<Rigidbody>().AddForce(muzzlePelletSpawnPoint.transform.forward.normalized * (pelletVelocity * (pelletVelocityMultiplier * 500)) * Time.deltaTime, ForceMode.Impulse);
     }
 
     public void Reload()
@@ -90,7 +114,7 @@ public class WeaponManager : MonoBehaviour
     {
         int n = bulletshell.Count;
         System.Random rng = new System.Random();
-        int k = rng.Next(n + 1);
+        int k = rng.Next(n);
         AudioClip audioClip = bulletshell[k];
         return audioClip;
     }

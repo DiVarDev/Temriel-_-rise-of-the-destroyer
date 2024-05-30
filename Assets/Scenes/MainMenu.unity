@@ -1080,7 +1080,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1730}
+  m_AnchoredPosition: {x: 0, y: -830}
   m_SizeDelta: {x: 0, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &387250884
@@ -1103,7 +1103,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Prometeo Car\r\n\tCar Engine\r\n\tTrie Screech\r\nMinecraft\r\r\n\tOrb\r\n\tAnvil_Land\r\n\tPortal\r\n\tChallenge_Complete\r"
+  m_text: "Soldier Sound Pack by MentalDreamsAssets\n\tFire\n\tReloading\n\tBulletshells
+    01\n\tBulletshells 02\n\tBulletshells 03\n\tBulletshells 04\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1679,7 +1680,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -2062.5}
+  m_AnchoredPosition: {x: 0, y: -1162.5}
   m_SizeDelta: {x: 0, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &627482494
@@ -1861,8 +1862,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -715}
-  m_SizeDelta: {x: 0, y: 1300}
+  m_AnchoredPosition: {x: 0, y: -265}
+  m_SizeDelta: {x: 0, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &707141004
 MonoBehaviour:
@@ -1884,19 +1885,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "TV anime \u201CMy Hero Academia\u201D Original Soundtrack by Yuki Hayashi\r\n\t04
-    Mu kosei no kun\u014D (Quirkless suffering)\r\n\t16 HERO A\r\n\t22 Sent\u014D
-    kunren (Combat Training)\r\n\t29 Ky\u014Di to no k\u014Db\u014D (Fighting against
-    threats)\r\nTV anime \u201CMy Hero Academia\u201D 2nd Original Soundtrack by
-    Yuki Hayashi\r\n\t01 Abantaitoru (Avant Title)\r\n\t02 Jet Set Run\r\n\t03 Kuso
-    gakk\u014D ppoi no (It's like a fucking school)\r\n\t04 Hokkori (Unwind)\r\n\t09
-    Sh\u014Dgaibutsuky\u014Ds\u014D (Obstacle Race)\r\n\t14 K\u014Dtekishu to kaite
-    `tomo' to yomu (It is written as ``good rival'' and \t\t     read as ``tomo.'')\r\n\t20
-    Bakusatsu-\u014D! ! (Bakusatsu King!!)\r\n\t23 Heikai-shiki-teki jikai yokoku
-    (Next closing ceremony notice)\r\n\t33 Sendai no meiy\u016B (Former Ally)\r\n\t43
-    Honki de \u53E9 Ki \u6F70 Su shozon (I'm seriously planning on crushing him.)\r\n\t46
-    Here\r\n\u201CMy Hero Academia\u201D 2018 Original Soundtrack by Yuki Hayashi\r\n\t01-03
-    Y.A.M. -Young All might-\r\n\t01-40 The Force of All For One\r"
+  m_text: "Tom Clancy's Rainbow Six: Siege (Original Soundtrack)\n\t03 Loadout\n\t16
+    Aftermath\nRainbow Six Extraction (Original Soundtrack)\n\tRainbow Six Extraction
+    (Music from the Cinematic Reveal Trailer)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3906,7 +3897,7 @@ MonoBehaviour:
   m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_DeselectOnBackgroundClick: 1
+  m_DeselectOnBackgroundClick: 0
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
 --- !u!1 &1391302033
@@ -4556,7 +4547,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -2245}
+  m_AnchoredPosition: {x: 0, y: -1345}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1644685924
@@ -4579,9 +4570,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Terrain Textures Pack Free by ALP\r\nPROMETEO: Car Controller by Mena\r\nSimple
-    Button Set 02 by That Witch Design\r\nTrophy Cups/Chalices FREE by The Quantum
-    Nexus\r"
+  m_text: "Tom Clancy's Rainbow Six: Siege Assets by Ubisoft\nFantasyEnvironments
+    by \r\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5256,7 +5246,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1397.5}
+  m_AnchoredPosition: {x: 0, y: -497.5}
   m_SizeDelta: {x: 0, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2008006121

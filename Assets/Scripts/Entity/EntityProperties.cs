@@ -49,6 +49,13 @@ public class EntityProperties : MonoBehaviour
     }
 
     // Coroutines
+    public IEnumerator WaitForFriendlyFireAudio(AudioClip painAudio, AudioClip friendlyAudio)
+    {
+        audioSource.PlayOneShot(painAudio);
+        yield return new WaitForSeconds(painAudio.length);
+        audioSource.PlayOneShot(friendlyAudio);
+    }
+
     public IEnumerator EntityDead()
     {
         audioSource.PlayOneShot(death);
@@ -113,18 +120,27 @@ public class EntityProperties : MonoBehaviour
         // if the pellet collides with the entity 
         if (collision.gameObject.tag.Equals("Pellet"))
         {
+            AudioClip painAudio = GetRandomAudioClip(pain);
+            AudioClip friendlyAudio = GetRandomAudioClip(friendlyFire);
+
             if (isEntityAlive && life > 0)
             {
                 if (role == (Person)collision.gameObject.GetComponent<AmmoProperties>().personWhoShot)
                 {
-                    audioSource.PlayOneShot(GetRandomAudioClip(friendlyFire));
+                    if (!audioSource.isPlaying)
+                    {
+                        StartCoroutine(WaitForFriendlyFireAudio(painAudio, friendlyAudio));
+                    }
                     life -= pelletDamage / 8;
                 }
                 else
                 {
                     life -= pelletDamage;
+                    if (!audioSource.isPlaying)
+                    {
+                        audioSource.PlayOneShot(painAudio);
+                    }
                 }
-                audioSource.PlayOneShot(GetRandomAudioClip(pain));
             }
             UpdateHealthValue();
             CheckLife();

@@ -23,7 +23,7 @@ public class VideoManager : MonoBehaviour
     public List<VideoClip> videoList;
     public bool isListLooping = false;
     public int videoListCount;
-    public int videoSelected;
+    public int videoSelected = 0;
     public string videoName;
     public float videoLength;
     public float videoPlayerPlaytime;

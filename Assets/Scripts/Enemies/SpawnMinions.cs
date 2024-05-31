@@ -57,10 +57,12 @@ public class SpawnMinions : MonoBehaviour
 
     public void SpawningMinion()
     {
+        Quaternion minionRotation = Quaternion.identity;
+        minionRotation.y = 45;
         // Instanciating the pellet
-        Instantiate(GetRandomPrefab(), spawn.transform.position, Quaternion.identity);
-        Instantiate(GetRandomPrefab(), spawn1.transform.position, Quaternion.identity);
-        Instantiate(GetRandomPrefab(), spawn2.transform.position, Quaternion.identity);
+        Instantiate(GetRandomPrefab(), spawn.transform.position, minionRotation);
+        Instantiate(GetRandomPrefab(), spawn1.transform.position, minionRotation);
+        Instantiate(GetRandomPrefab(), spawn2.transform.position, minionRotation);
     }
 
     // Coroutines
@@ -74,4 +76,6 @@ public class SpawnMinions : MonoBehaviour
         }
         SpawningMinion();
     }
+
+    // Trigger
 }

@@ -63,7 +63,7 @@ public class WeaponManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     // Functions
@@ -94,7 +94,7 @@ public class WeaponManager : MonoBehaviour
         // Instanciating the pellet
         GameObject pelletSpawned = Instantiate(pelletPrefab, muzzlePelletSpawnPoint.transform.position, Quaternion.identity);
         // Changing the scale of the pellet
-        pelletSpawned.transform.localScale = (pelletSpawned.transform.localScale)/32;
+        pelletSpawned.transform.localScale = (pelletSpawned.transform.localScale) / 32;
         // Assigning the weapontag and who shot
         pelletSpawned.GetComponent<AmmoProperties>().personWhoShot = (AmmoProperties.Person)personRole;
         // Adding the impulse to the pellet
